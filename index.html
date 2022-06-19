@@ -9,10 +9,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <nav>
+        <div id="menu">Menu</div>
+        <div class="menuOpt">Pronóstico</div>
+        <div class="menuOpt">Eventos</div>
+        <div class="menuOpt">Imágenes</div>
+        <div class="menuOpt">Contacto</div>
+    </nav>
     <div id="centerContainer">
-        <img src="" alt="">
         <div id="data"></div>
-        <input type="text" id="city">
+        <div id="circle" class=""></div>
+        <select name="cities" id="city">
+            <option value="madrid">Madrid</option>
+            <option value="barcelona">Barcelona</option>
+            <option value="santander">Santander</option>
+            <option value="sevilla">Sevilla</option>
+        </select>
         <button>Check Weather</button>
     </div>
 </body>
