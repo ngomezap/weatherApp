@@ -4,7 +4,8 @@ const textCity = document.getElementById('city');
 const image = document.querySelector('img');
 const circle = document.getElementById('circle');
 const topMenuSelector = document.querySelectorAll('#topMenu > div');
-const sideMenuSelector = document.querySelectorAll('#sideMenu > div');
+const sideMenuSelector = document.querySelectorAll('#sideMenu > div:not(#ball)');
+const ballMenu = document.getElementById("ball");
 let temp;
 
 function getData(city){
@@ -31,9 +32,21 @@ btn.addEventListener('click', function(){
 
 
 topMenuSelector.forEach((n) => dropDown(n, "topMenu"));
+
+ballMenu.addEventListener("click", () => {
+    sideMenuSelector.forEach((n) => {
+        if(n.classList.contains("menuOpt")){
+            n.classList.remove("menuOpt");
+        }else{
+            n.classList.add("menuOpt");
+        }
+    })
+})
+
 sideMenuSelector.forEach((n) => dropDown(n, "sideMenu"));
 
 function dropDown(n, arg) {
+
     n.addEventListener("mouseover", () => {
         document.querySelector(`#${arg}`).childNodes.forEach((n) => {
             if(n.nodeName === 'DIV'){
@@ -41,7 +54,6 @@ function dropDown(n, arg) {
             }
         })
     })
-
     n.addEventListener("mouseleave", () => {
         document.querySelectorAll(`#${arg} > div:not(.menuBanner)`).forEach((n) => {
             if(n.nodeName === 'DIV'){
@@ -49,4 +61,5 @@ function dropDown(n, arg) {
             }
         })
     })
+    
 }
