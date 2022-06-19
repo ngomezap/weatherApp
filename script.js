@@ -3,7 +3,8 @@ const divData = document.getElementById('data');
 const textCity = document.getElementById('city');
 const image = document.querySelector('img');
 const circle = document.getElementById('circle');
-const menuSelector = document.querySelectorAll('nav > div');
+const topMenuSelector = document.querySelectorAll('#topMenu > div');
+const sideMenuSelector = document.querySelectorAll('#sideMenu > div');
 let temp;
 
 function getData(city){
@@ -29,23 +30,23 @@ btn.addEventListener('click', function(){
 })
 
 
-menuSelector.forEach(n => {
+topMenuSelector.forEach((n) => dropDown(n, "topMenu"));
+sideMenuSelector.forEach((n) => dropDown(n, "sideMenu"));
+
+function dropDown(n, arg) {
     n.addEventListener("mouseover", () => {
-        document.querySelector('nav').childNodes.forEach((n) => {
+        document.querySelector(`#${arg}`).childNodes.forEach((n) => {
             if(n.nodeName === 'DIV'){
                 n.classList.remove('menuOpt');
             }
         })
     })
-    
+
     n.addEventListener("mouseleave", () => {
-        document.querySelectorAll("nav > div:not(#menu)").forEach((n) => {
+        document.querySelectorAll(`#${arg} > div:not(.menuBanner)`).forEach((n) => {
             if(n.nodeName === 'DIV'){
                 n.classList.add('menuOpt');
             }
         })
     })
-})
-
-
-
+}

@@ -8,14 +8,36 @@ body{
     margin: 0%;
 }
 
-nav{
+#topMenu{
     height: 5%;
     border: 1px black solid;
     margin: 0px;
     overflow-y: visible;
+    background-color: grey;
 }
 
-nav>div{
+#sideMenu{
+    display: none;
+    margin-top: 2%;
+    margin-left: 2%;
+    flex-direction: column;
+}
+
+
+#sideMenu>.menuBanner{
+    height: 40px;
+    border: 1px black solid;
+    width: 40px;
+    border-radius: 20px;
+    background-color: #8822aa;
+}
+
+#sideMenu>div{
+    margin-top: 20px;
+    height: 50px;
+}
+
+#topMenu>div{
     background-color: #7ce26f;
     width: 15%;
     border: 1px black solid;
@@ -78,9 +100,22 @@ button{
 }
 
 button:active{
-
     border-style: none;
 }
+
+/*--------Menú lateral ---------*/
+
+
+@media (max-width: 600px) {
+    #topMenu{
+        display: none;
+    }
+    #sideMenu{
+        display: flex;
+    }
+}
+
+
 
 /*------Animación-------*/
 
